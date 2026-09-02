@@ -20,6 +20,31 @@ section{padding:45px 6%}section h2{text-align:center;color:#0a315b;font-size:31p
 footer{background:#041c38;color:#cbd6e4;padding:18px 6%;display:flex;justify-content:space-between}
 @media(max-width:850px){.top,.header,footer{flex-direction:column;gap:10px;align-items:flex-start}.nav{overflow:auto;margin:0}.hero h2{font-size:34px}.grid{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.contact{grid-template-columns:1fr 1fr}.call{text-align:left}}
 </style>
+<style>
+.nav a{font-weight:700 !important;color:#fff !important}
+.nav a.active{background:#d00000 !important;color:#fff !important;border-radius:4px}
+.single-page{display:none;padding:40px 5%;background:#fff;min-height:500px}
+.single-page h2{text-align:center;color:#0b315b;font-size:34px;margin:0 0 28px}
+.page-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1250px;margin:auto}
+.page-card{border:1px solid #ddd;background:#fff;padding:20px;box-shadow:0 2px 8px #0001}
+.page-card h3{color:#a90000}.page-card a{color:#00e;text-decoration:underline}
+.vac-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1250px;margin:auto}
+.vac-box{border:1px solid #ddd;background:#fff;overflow:hidden}.vac-title{background:#b40000;color:#fff;text-align:center;font-size:24px;font-weight:bold;padding:10px}
+.vac-list{padding:12px 25px;min-height:330px}.vac-list li{margin-bottom:14px;line-height:1.35}.vac-list a{color:#00e;text-decoration:underline}.empty{text-align:center;color:#666;padding:90px 15px}
+@media(max-width:850px){.page-grid,.vac-grid{grid-template-columns:1fr}}
+</style>
+<style>
+.nav a[data-page]{
+  background:transparent !important;
+  color:#fff !important;
+  font-weight:700 !important;
+}
+.nav a[data-page].active{
+  background:#d00000 !important;
+  color:#fff !important;
+  font-weight:700 !important;
+}
+</style>
 </head>
 <body>
 <div class="top"><span>📍 Daulatpur, Uttar Pradesh</span><span>🕐 Customer Service: 24 घंटे उपलब्ध</span></div>
@@ -27,7 +52,16 @@ footer{background:#041c38;color:#cbd6e4;padding:18px 6%;display:flex;justify-con
 <div class="brand"><div class="logo">श्री</div><div><h1>Shri Ji Janseva Kendra <span>Daulatpur</span></h1><div class="tag">Aapki Seva, Hamara Sankalp</div></div></div>
 <div class="call">☎️ Call Us<br><b>8938986837</b><br><b>6396367324</b></div>
 </div>
-<div class="nav"><a href="#">Home</a><a href="#about">About Us</a><a href="#services">Services</a><a href="#contact">Gallery</a><a href="#services">Online Services</a><a href="#contact">Contact Us</a><span class="wa">💬 WhatsApp</span></div>
+<div class="nav">
+<a data-page="home" class="active" href="#home" onclick="openPage('home',this);return false;">Home</a>
+<a data-page="vacancy" href="#vacancy" onclick="openPage('vacancy',this);return false;">सरकारी Vacancy</a>
+<a data-page="about" href="#about" onclick="openPage('about',this);return false;">About Us</a>
+<a data-page="services" href="#services" onclick="openPage('services',this);return false;">Services</a>
+<a data-page="gallery" href="#gallery" onclick="openPage('gallery',this);return false;">Gallery</a>
+<a data-page="online" href="#online" onclick="openPage('online',this);return false;">Online Services</a>
+<a data-page="contact" href="#contact" onclick="openPage('contact',this);return false;">Contact Us</a>
+<span class="wa">💬 WhatsApp</span>
+</div>
 <div class="hero">
 <div><h2>Shri Ji Janseva Kendra<br><span>Daulatpur</span></h2><p>हमारी सेवाएँ, आपकी सुविधा</p><div class="checks">✓ सरकारी योजनाओं का लाभ<br>✓ ऑनलाइन आवेदन<br>✓ डिजिटल सेवाएँ<br>✓ सभी कार्य आसान और विश्वसनीय</div><a class="btn red" href="tel:8938986837">☎ 8938986837</a><a class="btn green" href="https://wa.me/918938986837">💬 WhatsApp करें</a></div>
 </div>
@@ -46,4 +80,49 @@ footer{background:#041c38;color:#cbd6e4;padding:18px 6%;display:flex;justify-con
 <section id="about" class="about"><div class="about-img">🧑‍💻</div><div><h2 style="text-align:left">हमारे बारे में</h2><p>श्री जी जनसेवा केन्द्र, दौलतपुर में आपका स्वागत है। हमारा उद्देश्य है कि सभी सरकारी और डिजिटल सेवाएँ आपको एक ही स्थान पर, आसान और विश्वसनीय तरीके से उपलब्ध कराई जाएँ।</p><p>हम हमेशा आपकी सेवा के लिए तत्पर हैं।</p></div></section>
 <section id="contact" class="contact"><div><h3>📍 हमारा पता</h3><p>Daulatpur, Uttar Pradesh</p></div><div><h3>☎️ कॉल करें</h3><p><a href="tel:8938986837">8938986837</a><br><a href="tel:6396367324">6396367324</a></p></div><div><h3>💬 WhatsApp करें</h3><p><a href="https://wa.me/918938986837">8938986837</a></p></div><div><h3>🕐 Customer Service</h3><p>24 घंटे उपलब्ध</p></div></section>
 <footer><span>© 2026 Shri Ji Janseva Kendra Daulatpur</span><span>Customer Service: 24 घंटे ❤️</span></footer>
-</body></html>
+<section id="vacancyPage" class="single-page"><h2>━━ सरकारी Vacancy ━━</h2><div id="vacGrid" class="vac-grid"></div></section>
+<section id="aboutPage" class="single-page"><h2>━━ About Us ━━</h2><div class="page-grid"><div class="page-card"><h3>श्रीजी जनसेवा केंद्र</h3><p>दौलतपुर में नागरिकों के लिए जनसेवा एवं ऑनलाइन सेवाएँ उपलब्ध हैं।</p></div></div></section>
+<section id="servicesPage" class="single-page"><h2>━━ Services ━━</h2><div class="page-grid"><div class="page-card"><h3>आधार सेवा</h3><p>आधार संबंधी सेवाओं में सहायता।</p></div><div class="page-card"><h3>PAN सेवा</h3><p>PAN आवेदन संबंधी सहायता।</p></div><div class="page-card"><h3>प्रमाण पत्र</h3><p>आय, जाति और निवास प्रमाण पत्र आवेदन सहायता।</p></div></div></section>
+<section id="galleryPage" class="single-page"><h2>━━ Gallery ━━</h2><div class="page-grid"><div class="page-card"><h3>Gallery</h3><p>केंद्र की फोटो यहाँ जोड़ी जा सकती हैं।</p></div></div></section>
+<section id="onlinePage" class="single-page"><h2>━━ Online Services ━━</h2><div class="page-grid"><div class="page-card"><h3>Online Application</h3><p>ऑनलाइन आवेदन की सुविधा।</p></div><div class="page-card"><h3>Bill Payment</h3><p>बिजली बिल, मोबाइल एवं DTH सेवाएँ।</p></div></div></section>
+<section id="contactPage" class="single-page"><h2>━━ Contact Us ━━</h2><div class="page-grid"><div class="page-card"><h3>संपर्क करें</h3><p>फोन: 8938986837<br>फोन: 6396367324<br>दौलतपुर</p></div></div></section><script>
+const originalSections=['.hero','#services','#about','#contact'];
+function openPage(page,el){
+  document.querySelectorAll('.nav a[data-page]').forEach(function(a){
+    a.classList.remove('active');
+    a.style.backgroundColor='';
+  });
+  el.classList.add('active');
+  el.style.setProperty('background-color','#d00000','important');
+
+  document.querySelectorAll('.single-page').forEach(function(s){
+    s.style.display='none';
+  });
+  originalSections.forEach(function(s){
+    const e=document.querySelector(s);
+    if(e)e.style.display=(page==='home'?'':'none');
+  });
+  if(page!=='home'){
+    const e=document.getElementById(page+'Page');
+    if(e)e.style.display='block';
+  }
+  if(page==='vacancy')renderVacancies();
+  window.scrollTo(0,0);
+}
+function renderVacancies(){
+  let data=[];
+  try{data=JSON.parse(localStorage.getItem('shriji_vacancies')||'[]')}catch(e){}
+  const cats=['Results','Admit Cards','Latest Jobs'];
+  document.getElementById('vacGrid').innerHTML=cats.map(function(c){
+    const a=data.filter(function(x){return x.cat===c;});
+    return '<div class="vac-box"><div class="vac-title">'+c+'</div>'+
+      (a.length?'<ul class="vac-list">'+a.map(function(x){
+        return '<li><a href="'+(x.link||'#')+'" target="_blank">'+x.title+'</a></li>';
+      }).join('')+'</ul>':
+      '<div class="empty">अभी कोई Vacancy नहीं है।<br>Admin Panel से जोड़ें।</div>')+
+      '</div>';
+  }).join('');
+}
+document.querySelectorAll('.nav a[data-page]').forEach(function(a){a.classList.remove('active');});
+document.querySelector('.nav a[data-page="home"]').classList.add('active');
+</script></body></html>
