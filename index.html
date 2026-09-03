@@ -47,6 +47,10 @@ footer{background:#041c38;color:#cbd6e4;padding:18px 6%;display:flex;justify-con
 <section id="contactPage" class="dynamic-page"><h2>━━ Contact Us ━━</h2><section class="contact" style="margin:0 -6%"><div><h3>📍 हमारा पता</h3><p>Daulatpur, Uttar Pradesh</p></div><div><h3>☎️ कॉल करें</h3><p><a href="tel:8938986837">8938986837</a><br><a href="tel:6396367324">6396367324</a></p></div><div><h3>💬 WhatsApp करें</h3><p><a href="https://wa.me/918938986837" target="_blank">8938986837</a></p></div><div><h3>🕐 Customer Service</h3><p>24 घंटे उपलब्ध</p></div></section><div id="contactItems" class="dynamic-grid" style="margin-top:25px"></div></section>
 
 <div id="detailModal" style="display:none"></div>
+<div id="vacancyDetailPage" class="dynamic-page" style="display:none; padding:40px 6%; min-height:500px;">
+  <button onclick="backToVacancies()" style="background:#062b55;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-weight:bold;cursor:pointer;">← सरकारी Vacancy पर वापस जाएँ</button>
+  <div id="vacancyDetailContent" style="background:#fff;border:1px solid #ddd;border-radius:10px;padding:28px;margin-top:20px;max-width:1000px;margin-left:auto;margin-right:auto;"></div>
+</div>
 <footer><span>© 2026 Shri Ji Janseva Kendra Daulatpur</span><span>Customer Service: 24 घंटे ❤️</span></footer>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
@@ -58,7 +62,25 @@ const details={};let seq=0;function key(x){const k='d'+(++seq);details[k]=x;retu
 function card(x){const k=key(x);return `<div class="dyn-card"><h3><a href="javascript:void(0)" onclick="openDetail('${k}')">${esc(x.title)}</a></h3>${x.description?`<p>${esc(x.description)}</p>`:''}<a href="javascript:void(0)" onclick="openDetail('${k}')">पूरी जानकारी देखें →</a>${x.link?` <a href="${esc(safeUrl(x.link))}" target="_blank" rel="noopener">Official Link →</a>`:''}</div>`}
 function render(id,arr){const e=$(id);if(!e)return;e.innerHTML=arr.length?arr.map(card).join(''):'<div class="dyn-empty">अभी कोई जानकारी नहीं जोड़ी गई है।<br>Admin Panel से जोड़ें।</div>'}
 function loadMenu(){if(!db)return;db.ref('menuItems').on('value',s=>{const g={home:[],about:[],services:[],gallery:[],online:[],contact:[]};Object.values(s.val()||{}).forEach(x=>{if(x&&g[x.menu])g[x.menu].push(x)});Object.values(g).forEach(a=>a.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0)));render('homeItems',g.home);render('aboutItems',g.about);render('servicesItems',g.services);render('galleryItems',g.gallery);render('onlineItems',g.online);render('contactItems',g.contact)})}
-function loadVac(){const cats=['Results','Admit Cards','Latest Jobs'];$('vacGrid').innerHTML=cats.map(c=>`<div class="vac-box"><div class="vac-title">${c}</div><div class="vac-list" id="cat-${c.replace(/\s/g,'-')}"><div class="dyn-empty">लोड हो रहा है...</div></div></div>`).join('');if(!db)return;db.ref('vacancies').on('value',s=>{const d=s.val()||{};cats.forEach(c=>{const a=Object.values(d).filter(x=>x&&x.cat===c).sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));const e=$('cat-'+c.replace(/\s/g,'-'));e.innerHTML=a.length?'<ul>'+a.map(x=>{const k=key(x);return `<li>${x.link?`<a href="${esc(safeUrl(x.link))}" target="_blank" rel="noopener">${esc(x.title)}</a>`:`<a href="javascript:void(0)" onclick="openDetail('${k}')">${esc(x.title)}</a>`}</li>`}).join('')+'</ul>':'<div class="dyn-empty">अभी कोई Vacancy नहीं है।<br>Admin Panel से जोड़ें।</div>'})},e=>{if($('dbStatus')){$('dbStatus').textContent='Database error: '+e.message;$('dbStatus').className='status show'}})}
+function openVacancyPage(x){
+  $('vacancyPage').style.display='none';
+  $('homeView').style.display='none';
+  document.querySelectorAll('.dynamic-page').forEach(v=>v.style.display='none');
+  $('vacancyDetailPage').style.display='block';
+  const link=x.link?safeUrl(x.link):'';
+  $('vacancyDetailContent').innerHTML=`<h1 style="color:#062b55;margin-top:0;">${esc(x.title||'सरकारी Vacancy')}</h1>
+  <div style="color:#777;margin-bottom:18px;">${esc(x.cat||'Latest Jobs')}</div>
+  <hr>
+  <div style="font-size:18px;line-height:1.8;white-space:pre-wrap;">${esc(x.description||'इस Vacancy की विस्तृत जानकारी अभी Admin Panel में नहीं जोड़ी गई है।')}</div>
+  ${link&&link!=='#'?`<p style="margin-top:25px;"><a href="${esc(link)}" target="_blank" rel="noopener" style="display:inline-block;background:#d00000;color:#fff;padding:12px 20px;border-radius:6px;text-decoration:none;font-weight:bold;">🔗 Official Link खोलें</a></p>`:''}`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function backToVacancies(){
+  $('vacancyDetailPage').style.display='none';
+  $('vacancyPage').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function loadVac(){const cats=['Results','Admit Cards','Latest Jobs'];$('vacGrid').innerHTML=cats.map(c=>`<div class="vac-box"><div class="vac-title">${c}</div><div class="vac-list" id="cat-${c.replace(/\s/g,'-')}"><div class="dyn-empty">लोड हो रहा है...</div></div></div>`).join('');if(!db)return;db.ref('vacancies').on('value',s=>{const d=s.val()||{};cats.forEach(c=>{const a=Object.values(d).filter(x=>x&&x.cat===c).sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));const e=$('cat-'+c.replace(/\s/g,'-'));e.innerHTML=a.length?'<ul>'+a.map(x=>{const k=key(x);return `<li><a href="javascript:void(0)" onclick="openVacancyPage(details['${k}'])">${esc(x.title)}</a></li>`}).join('')+'</ul>':'<div class="dyn-empty">अभी कोई Vacancy नहीं है।<br>Admin Panel से जोड़ें।</div>'})},e=>{if($('dbStatus')){$('dbStatus').textContent='Database error: '+e.message;$('dbStatus').className='status show'}})}
 function showPage(page,el){document.querySelectorAll('.nav a[data-page]').forEach(a=>a.classList.remove('active'));el.classList.add('active');$('homeView').style.display=page==='home'?'block':'none';document.querySelectorAll('.dynamic-page').forEach(x=>x.style.display='none');if(page==='vacancy'){$('vacancyPage').style.display='block';loadVac()}else if(page==='about')$('aboutPage').style.display='block';else if(page==='services')$('servicesPage').style.display='block';else if(page==='gallery')$('galleryPage').style.display='block';else if(page==='online')$('onlinePage').style.display='block';else if(page==='contact')$('contactPage').style.display='block';window.scrollTo({top:0,behavior:'smooth'})}
 document.querySelectorAll('.nav a[data-page]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();showPage(a.dataset.page,a)}));loadMenu();
 </script>
