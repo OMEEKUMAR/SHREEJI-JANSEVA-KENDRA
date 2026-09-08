@@ -74,7 +74,6 @@ footer{background:#041c38;color:#cbd6e4;padding:18px 6%;display:flex;justify-con
 
 <div id="detailModal" style="display:none"></div>
 <div id="vacancyDetailPage" class="dynamic-page" style="display:none; padding:40px 6%; min-height:500px;">
-  <button onclick="backToVacancies()" style="background:#062b55;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-weight:bold;cursor:pointer;">← सरकारी Vacancy पर वापस जाएँ</button>
   <div id="vacancyDetailContent" style="background:#fff;border:1px solid #ddd;border-radius:10px;padding:28px;margin-top:20px;max-width:1000px;margin-left:auto;margin-right:auto;"></div>
 </div>
 <footer><span>© 2026 Shri Ji Janseva Kendra Daulatpur</span><span>Customer Service: 24 घंटे ❤️</span></footer>
@@ -99,7 +98,7 @@ function openVacancyPage(x){
   const sections=Array.isArray(x.sections)?x.sections:[];
   const links=Array.isArray(x.importantLinks)?x.importantLinks:[];
   let detail='<div class="article-wrap">';
-  detail+='<button class="article-back" onclick="backToVacancies()">← सरकारी Vacancy पर वापस जाएँ</button>';
+  detail+='';
   detail+='<h1 class="article-title">'+esc(x.title||'सरकारी Vacancy')+'</h1>';
   if(x.postDate) detail+='<div class="article-date">Post Date: '+esc(x.postDate)+'</div>';
   if(x.intro) detail+='<div class="article-intro">'+articleText(x.intro)+'</div>';
