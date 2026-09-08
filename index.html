@@ -23,31 +23,47 @@ footer{background:#041c38;color:#cbd6e4;padding:18px 6%;display:flex;justify-con
 .service-dynamic-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-top:25px}.service-dynamic-card{background:#fff;border:1px solid #e1e5ea;border-radius:10px;padding:22px 12px;text-align:center;box-shadow:0 4px 15px #0000000a}.service-dynamic-card .ico{font-size:42px;margin-bottom:10px}.service-dynamic-card h3{font-size:18px;margin:6px 0}.service-dynamic-card p{font-size:14px;color:#666;margin:0;line-height:1.5;white-space:pre-line}.service-dynamic-card a{font-size:13px}.detail-backdrop{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;padding:20px;z-index:9999}.detail-box{position:relative;background:#fff;max-width:850px;width:100%;max-height:85vh;overflow:auto;border-radius:12px;padding:30px;box-shadow:0 15px 50px #0005}.detail-box h2{margin:0 35px 20px 0;color:#082e57;text-align:left;font-size:30px}.detail-close{position:absolute;right:12px;top:8px;border:0;background:#c00;color:#fff;width:36px;height:36px;border-radius:50%;font-size:25px;cursor:pointer}.detail-text{font-size:17px;line-height:1.7;white-space:pre-wrap;color:#222}.detail-link{display:inline-block;margin-top:20px;background:#c00;color:#fff!important;padding:11px 18px;border-radius:7px;text-decoration:none!important;font-weight:bold}
 @media(max-width:850px){.top,.header,footer{flex-direction:column;gap:10px;align-items:flex-start}.nav{overflow:auto;margin:0}.hero h2{font-size:34px}.grid{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.contact{grid-template-columns:1fr 1fr}.call{text-align:left}.dynamic-grid,.vac-grid,.service-dynamic-grid{grid-template-columns:1fr}.wa{margin-left:0}}
 
-/* Vacancy article layout */
-.article-wrap{max-width:1200px;margin:0 auto;background:#fff;color:#111;font-family:"Times New Roman",Times,serif;padding:10px 0 35px}
-.article-title{color:#062b55;text-decoration:none;font-size:31px;font-weight:700;margin:0 0 12px;line-height:1.25}
+/* Vacancy article layout - reference style */
+.article-wrap{max-width:1200px;margin:0 auto;background:#fff;color:#111;font-family:"Times New Roman",Times,serif;padding:10px 18px 40px}
+.article-title{color:#0000ee;text-decoration:none;font-size:31px;font-weight:700;margin:0 0 10px;line-height:1.25}
 .article-date{color:#c00;font-weight:700;font-size:15px;margin-bottom:18px}
-.article-intro{font-size:17px;line-height:1.75;margin:0 0 18px;font-weight:600}
-.article-main-text{font-size:17px;line-height:1.8;white-space:pre-wrap;margin-bottom:22px}
-.article-section{margin:22px 0}
-.article-section-title{display:table;margin:0 auto;background:#000080;color:#fff;font-size:20px;font-weight:700;padding:2px 8px;text-align:center;line-height:1.25}
-.article-section-content{border:1px solid #111;border-top:0;font-size:17px;line-height:1.65}.article-content-row{padding:7px 12px;border-bottom:1px solid #111;min-height:36px}.article-content-row:last-child{border-bottom:0}.article-content-row b{font-weight:700}
+.article-intro,.article-main-text{font-size:17px;line-height:1.72;margin:0 0 20px;font-weight:600}
+.article-section{margin:24px 0}
+.article-section-title{display:table;margin:0 auto;background:#000080;color:#fff;font-size:20px;font-weight:700;padding:1px 7px;text-align:center;line-height:1.25;border:1px solid #000080}
+.article-section-content{border:1px solid #111;border-top:0;font-size:17px;line-height:1.55}
+.article-content-row{padding:6px 10px;border-bottom:1px solid #111;min-height:34px}
+.article-content-row:last-child{border-bottom:0}
+.article-content-row b{font-weight:700}
+.article-two-col{display:grid;grid-template-columns:1fr 1fr;border:1px solid #111;border-top:0}
+.article-two-col .article-col{min-width:0}
+.article-two-col .article-col+.article-col{border-left:1px solid #111}
+.article-two-col .article-col-title{background:#5b0030;color:#fff;text-align:center;font-size:19px;font-weight:700;padding:7px;border-bottom:1px solid #111}
+.article-two-col .article-col-body{padding:7px 12px;font-size:17px;line-height:1.6}
+.article-two-col ul,.article-section-content ul{margin:0;padding-left:22px}
+.article-two-col li,.article-section-content li{margin:4px 0}
 .article-table-wrap{overflow:auto;margin-top:0}
 .article-table{width:100%;border-collapse:collapse;font-size:17px;font-weight:600}
 .article-table th,.article-table td{border:1px solid #111;padding:7px 8px;text-align:center;vertical-align:middle}
 .article-table th{background:#fff;font-weight:700;font-size:17px}
+.article-age-total{display:grid;grid-template-columns:1fr 230px;border:1px solid #111}
+.article-age-total .age-side{border-right:1px solid #111}
+.article-age-total .age-title{background:#006b35;color:#fff;text-align:center;font-size:19px;font-weight:700;padding:7px}
+.article-age-total .total-title{background:#ff3b00;color:#fff;text-align:center;font-size:19px;font-weight:700;padding:7px}
+.article-age-total .age-body{padding:8px 12px;font-size:17px;line-height:1.6}
+.article-age-total .total-body{text-align:center;font-size:24px;font-weight:700;padding:14px 8px}
 .article-links{margin-top:24px;border:1px solid #111}
 .article-links-title{background:#fff;color:#f00;text-align:center;font-size:19px;font-weight:700;padding:8px;border-bottom:1px solid #111}
 .article-link-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #111}
 .article-link-row:last-child{border-bottom:0}
-.article-link-name,.article-link-url{padding:9px 12px;font-weight:700;text-align:center}
-.article-link-name{background:#fff4a8}
-.article-link-url{background:#fff4a8;color:#00e;text-decoration:underline}
-.article-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;justify-content:center}
+.article-link-name,.article-link-url{padding:10px 12px;font-weight:700;text-align:center}
+.article-link-name,.article-link-url{background:#fff4a8}
+.article-link-url a{color:#00e;text-decoration:underline}
+.article-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;justify-content:flex-start}
 .article-btn{display:inline-block;padding:10px 18px;border-radius:4px;text-decoration:none;font-weight:700;color:#fff}
 .article-image{max-width:100%;height:auto;display:block;margin:20px auto;border:1px solid #ddd}
-.article-back{background:#062b55;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-weight:700;cursor:pointer;margin-bottom:18px}
-@media(max-width:850px){.article-title{font-size:25px}.article-link-row{grid-template-columns:1fr}.article-table{font-size:14px}.article-section-title{font-size:18px}}
+.article-note{color:#f00;font-weight:700}
+.article-check{border:1px solid #111;padding:7px 10px;margin:18px 0;font-size:17px;font-weight:700}
+@media(max-width:850px){.article-title{font-size:25px}.article-link-row,.article-two-col,.article-age-total{grid-template-columns:1fr}.article-two-col .article-col+.article-col{border-left:0;border-top:1px solid #111}.article-age-total .age-side{border-right:0;border-bottom:1px solid #111}.article-table{font-size:14px}.article-section-title{font-size:18px}}
 </style>
 </head>
 <body>
@@ -90,6 +106,31 @@ function loadMenu(){if(!db)return;db.ref('menuItems').on('value',s=>{const g={ho
 function articleText(v){
   return esc(v||'').replace(/\n/g,'<br>');
 }
+function fmtLines(text){
+  return String(text||'').split(/\r?\n/).map(v=>v.trim()).filter(Boolean);
+}
+function renderBullets(text){
+  const lines=fmtLines(text);
+  if(!lines.length)return '';
+  return '<ul>'+lines.map(line=>'<li>'+articleText(line)+'</li>').join('')+'</ul>';
+}
+function renderGenericSection(sec){
+  let out='<div class="article-section">';
+  if(sec.heading) out+='<div class="article-section-title">'+esc(sec.heading)+'</div>';
+  if(sec.tableHeaders&&sec.tableRows){
+    const hs=sec.tableHeaders.split('|').map(v=>v.trim()).filter(Boolean);
+    const rows=sec.tableRows.split(/\r?\n/).map(r=>r.trim()).filter(Boolean).map(r=>r.split('|').map(v=>v.trim()));
+    out+='<div class="article-table-wrap"><table class="article-table"><thead><tr>'+hs.map(h=>'<th>'+esc(h)+'</th>').join('')+'</tr></thead><tbody>';
+    rows.forEach(r=>{out+='<tr>'+hs.map((_,i)=>'<td>'+articleText(r[i]||'')+'</td>').join('')+'</tr>'});
+    out+='</tbody></table></div>';
+  }else if(sec.content){
+    const h=String(sec.heading||'').toLowerCase();
+    const isHow=/how to fill|how to apply|mode of selection|important question|faq|eligibility|age limit|application fee|important dates|selection/.test(h);
+    if(isHow) out+='<div class="article-section-content">'+renderBullets(sec.content)+'</div>';
+    else out+='<div class="article-section-content">'+fmtLines(sec.content).map(line=>'<div class="article-content-row">'+articleText(line)+'</div>').join('')+'</div>';
+  }
+  return out+'</div>';
+}
 function openVacancyPage(x){
   $('vacancyPage').style.display='none';
   $('homeView').style.display='none';
@@ -98,37 +139,39 @@ function openVacancyPage(x){
   const sections=Array.isArray(x.sections)?x.sections:[];
   const links=Array.isArray(x.importantLinks)?x.importantLinks:[];
   let detail='<div class="article-wrap">';
-  detail+='';
   detail+='<h1 class="article-title">'+esc(x.title||'सरकारी Vacancy')+'</h1>';
   if(x.postDate) detail+='<div class="article-date">Post Date: '+esc(x.postDate)+'</div>';
   if(x.intro) detail+='<div class="article-intro">'+articleText(x.intro)+'</div>';
   if(x.description) detail+='<div class="article-main-text">'+articleText(x.description)+'</div>';
-  sections.forEach(sec=>{
-    if(sec.heading) detail+='<div class="article-section"><div class="article-section-title">'+esc(sec.heading)+'</div>';
-    if(sec.content){
-      const lines=String(sec.content).split(/\r?\n/).map(v=>v.trim()).filter(Boolean);
-      if(lines.length) detail+='<div class="article-section-content">'+lines.map(line=>'<div class="article-content-row">'+articleText(line)+'</div>').join('')+'</div>';
+
+  // Reference-style first two sections side-by-side when they are Important Dates + Application Fee.
+  let i=0;
+  while(i<sections.length){
+    const a=sections[i], b=sections[i+1];
+    const ah=String(a.heading||'').toLowerCase(), bh=String(b&&b.heading||'').toLowerCase();
+    if(b && ((/important dates/.test(ah)&&/application fee/.test(bh))||(/application fee/.test(ah)&&/important dates/.test(bh)))){
+      detail+='<div class="article-section"><div class="article-two-col">';
+      [a,b].forEach(sec=>{detail+='<div class="article-col"><div class="article-col-title">'+esc(sec.heading)+'</div><div class="article-col-body">'+(sec.tableHeaders&&sec.tableRows?renderGenericSection(sec).replace(/^<div class="article-section">|<\/div>$/g,''):renderBullets(sec.content))+'</div></div>'});
+      detail+='</div></div>'; i+=2; continue;
     }
-    if(sec.tableHeaders&&sec.tableRows){
-      const hs=sec.tableHeaders.split('|').map(v=>v.trim()).filter(Boolean);
-      const rows=sec.tableRows.split(/\n/).map(r=>r.trim()).filter(Boolean).map(r=>r.split('|').map(v=>v.trim()));
-      detail+='<div class="article-table-wrap"><table class="article-table"><thead><tr>'+hs.map(h=>'<th>'+esc(h)+'</th>').join('')+'</tr></thead><tbody>';
-      rows.forEach(r=>{detail+='<tr>'+hs.map((_,i)=>'<td>'+esc(r[i]||'')+'</td>').join('')+'</tr>'});
-      detail+='</tbody></table></div>';
+    // Age limit + Total Post: total post is read from badge when badge is supplied.
+    if(/age limit/.test(ah) && x.badge){
+      detail+='<div class="article-section"><div class="article-age-total"><div class="age-side"><div class="age-title">'+esc(a.heading)+'</div><div class="age-body">'+renderBullets(a.content)+'</div></div><div><div class="total-title">Total Post</div><div class="total-body">'+esc(x.badge)+'</div></div></div></div>';
+      i++; continue;
     }
-    if(sec.heading) detail+='</div>';
-  });
+    if(/you may also check/.test(ah)){
+      detail+='<div class="article-check">• '+articleText(a.content||a.heading)+'</div>'; i++; continue;
+    }
+    detail+=renderGenericSection(a); i++;
+  }
   if(links.length){
     detail+='<div class="article-links"><div class="article-links-title">SOME USEFUL IMPORTANT LINKS</div>';
     links.forEach(l=>{const u=safeUrl(l.url);if(u!=='#') detail+='<div class="article-link-row"><div class="article-link-name">'+esc(l.name||'Link')+'</div><div class="article-link-url"><a href="'+esc(u)+'" target="_blank" rel="noopener">Click Here</a></div></div>'});
     detail+='</div>';
   }
   if(x.imageUrl){const u=safeUrl(x.imageUrl);if(u!=='#') detail+='<img class="article-image" src="'+esc(u)+'" alt="">';}
-  detail+='<div class="article-buttons">';
-  if(x.mainLink&&safeUrl(x.mainLink)!=='#') detail+='<a class="article-btn" style="background:#d00000" href="'+esc(safeUrl(x.mainLink))+'" target="_blank" rel="noopener">🔗 Official / Main Link</a>';
-  if(x.whatsapp&&safeUrl(x.whatsapp)!=='#') detail+='<a class="article-btn" style="background:#0caf57" href="'+esc(safeUrl(x.whatsapp))+'" target="_blank" rel="noopener">💬 WhatsApp</a>';
-  if(x.telegram&&safeUrl(x.telegram)!=='#') detail+='<a class="article-btn" style="background:#168acd" href="'+esc(safeUrl(x.telegram))+'" target="_blank" rel="noopener">✈️ Telegram</a>';
-  detail+='</div></div>';
+  if(x.mainLink&&safeUrl(x.mainLink)!=='#') detail+='<div class="article-buttons"><a class="article-btn" style="background:#d00000" href="'+esc(safeUrl(x.mainLink))+'" target="_blank" rel="noopener">Official / Main Link</a></div>';
+  detail+='</div>';
   $('vacancyDetailContent').innerHTML=detail;
   window.scrollTo({top:0,behavior:'smooth'});
 }
