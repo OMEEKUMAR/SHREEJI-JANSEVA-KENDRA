@@ -22,6 +22,32 @@ footer{background:#041c38;color:#cbd6e4;padding:18px 6%;display:flex;justify-con
 .vac-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1250px;margin:auto}.vac-box{border:1px solid #ddd;background:#fff;overflow:hidden}.vac-title{background:#b40000;color:#fff;text-align:center;font-size:24px;font-weight:bold;padding:10px}.vac-list{padding:12px 25px;min-height:330px}.vac-list li{margin-bottom:14px;line-height:1.45}.vac-list a{color:#00e;text-decoration:underline;font-weight:700}.status{max-width:1250px;margin:0 auto 18px;padding:10px 14px;border-radius:6px;background:#fff3cd;color:#664d03;display:none}.status.show{display:block}
 .service-dynamic-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-top:25px}.service-dynamic-card{background:#fff;border:1px solid #e1e5ea;border-radius:10px;padding:22px 12px;text-align:center;box-shadow:0 4px 15px #0000000a}.service-dynamic-card .ico{font-size:42px;margin-bottom:10px}.service-dynamic-card h3{font-size:18px;margin:6px 0}.service-dynamic-card p{font-size:14px;color:#666;margin:0;line-height:1.5;white-space:pre-line}.service-dynamic-card a{font-size:13px}.detail-backdrop{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;padding:20px;z-index:9999}.detail-box{position:relative;background:#fff;max-width:850px;width:100%;max-height:85vh;overflow:auto;border-radius:12px;padding:30px;box-shadow:0 15px 50px #0005}.detail-box h2{margin:0 35px 20px 0;color:#082e57;text-align:left;font-size:30px}.detail-close{position:absolute;right:12px;top:8px;border:0;background:#c00;color:#fff;width:36px;height:36px;border-radius:50%;font-size:25px;cursor:pointer}.detail-text{font-size:17px;line-height:1.7;white-space:pre-wrap;color:#222}.detail-link{display:inline-block;margin-top:20px;background:#c00;color:#fff!important;padding:11px 18px;border-radius:7px;text-decoration:none!important;font-weight:bold}
 @media(max-width:850px){.top,.header,footer{flex-direction:column;gap:10px;align-items:flex-start}.nav{overflow:auto;margin:0}.hero h2{font-size:34px}.grid{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.contact{grid-template-columns:1fr 1fr}.call{text-align:left}.dynamic-grid,.vac-grid,.service-dynamic-grid{grid-template-columns:1fr}.wa{margin-left:0}}
+
+/* Vacancy article layout */
+.article-wrap{max-width:1200px;margin:0 auto;background:#fff;color:#111;font-family:"Times New Roman",Times,serif;padding:10px 0 35px}
+.article-title{color:#062b55;text-decoration:none;font-size:31px;font-weight:700;margin:0 0 12px;line-height:1.25}
+.article-date{color:#c00;font-weight:700;font-size:15px;margin-bottom:18px}
+.article-intro{font-size:17px;line-height:1.75;margin:0 0 18px;font-weight:600}
+.article-main-text{font-size:17px;line-height:1.8;white-space:pre-wrap;margin-bottom:22px}
+.article-section{margin:22px 0}
+.article-section-title{display:table;margin:0 auto;background:#000080;color:#fff;font-size:20px;font-weight:700;padding:2px 8px;text-align:center;line-height:1.25}
+.article-section-content{border:1px solid #111;border-top:0;padding:10px 14px;font-size:17px;line-height:1.7;white-space:pre-wrap}
+.article-table-wrap{overflow:auto;margin-top:0}
+.article-table{width:100%;border-collapse:collapse;font-size:17px;font-weight:600}
+.article-table th,.article-table td{border:1px solid #111;padding:7px 8px;text-align:center;vertical-align:middle}
+.article-table th{background:#fff;font-weight:700;font-size:17px}
+.article-links{margin-top:24px;border:1px solid #111}
+.article-links-title{background:#fff;color:#f00;text-align:center;font-size:19px;font-weight:700;padding:8px;border-bottom:1px solid #111}
+.article-link-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #111}
+.article-link-row:last-child{border-bottom:0}
+.article-link-name,.article-link-url{padding:9px 12px;font-weight:700;text-align:center}
+.article-link-name{background:#fff4a8}
+.article-link-url{background:#fff4a8;color:#00e;text-decoration:underline}
+.article-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;justify-content:center}
+.article-btn{display:inline-block;padding:10px 18px;border-radius:4px;text-decoration:none;font-weight:700;color:#fff}
+.article-image{max-width:100%;height:auto;display:block;margin:20px auto;border:1px solid #ddd}
+.article-back{background:#062b55;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-weight:700;cursor:pointer;margin-bottom:18px}
+@media(max-width:850px){.article-title{font-size:25px}.article-link-row{grid-template-columns:1fr}.article-table{font-size:14px}.article-section-title{font-size:18px}}
 </style>
 </head>
 <body>
@@ -62,13 +88,46 @@ const details={};let seq=0;function key(x){const k='d'+(++seq);details[k]=x;retu
 function card(x,isService=false){const k=key(x);if(isService)return `<div class="service-dynamic-card"><div class="ico">${esc(x.icon||'📌')}</div><h3>${esc(x.title)}</h3>${x.description?`<p>${esc(x.description)}</p>`:''}${x.link?`<p><a href="${esc(safeUrl(x.link))}" target="_blank" rel="noopener" style="color:#00e;text-decoration:underline;font-weight:700">Official Link →</a></p>`:''}</div>`;return `<div class="dyn-card"><h3><a href="javascript:void(0)" onclick="openDetail('${k}')">${esc(x.title)}</a></h3>${x.description?`<p>${esc(x.description)}</p>`:''}<a href="javascript:void(0)" onclick="openDetail('${k}')">पूरी जानकारी देखें →</a>${x.link?` <a href="${esc(safeUrl(x.link))}" target="_blank" rel="noopener">Official Link →</a>`:''}</div>`}
 function render(id,arr){const e=$(id);if(!e)return;const isService=id==='servicesItems';e.innerHTML=arr.length?arr.map(x=>card(x,isService)).join(''):''}
 function loadMenu(){if(!db)return;db.ref('menuItems').on('value',s=>{const g={home:[],about:[],services:[],gallery:[],online:[],contact:[]};Object.values(s.val()||{}).forEach(x=>{if(x&&g[x.menu])g[x.menu].push(x)});Object.values(g).forEach(a=>a.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0)));render('homeItems',g.home);render('aboutItems',g.about);render('servicesItems',g.services);render('galleryItems',g.gallery);render('onlineItems',g.online);render('contactItems',g.contact)})}
+function articleText(v){
+  return esc(v||'').replace(/\n/g,'<br>');
+}
 function openVacancyPage(x){
   $('vacancyPage').style.display='none';
   $('homeView').style.display='none';
   document.querySelectorAll('.dynamic-page').forEach(v=>v.style.display='none');
   $('vacancyDetailPage').style.display='block';
-  const link=x.link?safeUrl(x.link):'';
-  const sections=Array.isArray(x.sections)?x.sections:[];const links=Array.isArray(x.importantLinks)?x.importantLinks:[];let detail='';detail+=`<h1 style="color:#062b55;margin-top:0;">${esc(x.title||'सरकारी Vacancy')}</h1>`;if(x.postDate||x.badge)detail+=`<div style="color:#777;margin-bottom:18px;">${esc(x.postDate||'')}${x.postDate&&x.badge?' • ':''}${esc(x.badge||'')}</div>`;if(x.intro)detail+=`<p style="font-size:18px;line-height:1.7;">${esc(x.intro)}</p>`;if(x.description)detail+=`<div style="font-size:18px;line-height:1.8;white-space:pre-wrap;">${esc(x.description)}</div>`;sections.forEach(sec=>{detail+=`<div style="margin-top:28px;"><h2 style="color:#062b55;margin-bottom:10px;">${esc(sec.heading||'')}</h2>${sec.content?`<div style="font-size:17px;line-height:1.7;white-space:pre-wrap;">${esc(sec.content)}</div>`:''}`;if(sec.tableHeaders&&sec.tableRows){const hs=sec.tableHeaders.split('|').map(v=>v.trim());const rows=sec.tableRows.split(/\n/).filter(Boolean).map(r=>r.split('|').map(v=>v.trim()));detail+=`<div style="overflow:auto;margin-top:12px;"><table style="width:100%;border-collapse:collapse;"><thead><tr>${hs.map(h=>`<th style="border:1px solid #ddd;padding:10px;text-align:left;background:#f2f5f8;">${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${hs.map((_,i)=>`<td style="border:1px solid #ddd;padding:10px;">${esc(r[i]||'')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`}detail+='</div>'});if(links.length)detail+=`<div style="margin-top:28px;"><h2 style="color:#062b55;">Important Links</h2>${links.map(l=>`<p><a href="${esc(safeUrl(l.url))}" target="_blank" rel="noopener">${esc(l.name||'Link')} →</a></p>`).join('')}</div>`;if(x.imageUrl)detail+=`<p><img src="${esc(safeUrl(x.imageUrl))}" style="max-width:100%;border-radius:8px;" alt=""></p>`;detail+=`<div style="margin-top:25px;display:flex;gap:10px;flex-wrap:wrap;">${x.mainLink&&safeUrl(x.mainLink)!=='#'?`<a class="detail-link" href="${esc(safeUrl(x.mainLink))}" target="_blank" rel="noopener">🔗 Official Link खोलें</a>`:''}${x.whatsapp&&safeUrl(x.whatsapp)!=='#'?`<a class="detail-link" style="background:#0caf57" href="${esc(safeUrl(x.whatsapp))}" target="_blank" rel="noopener">💬 WhatsApp</a>`:''}${x.telegram&&safeUrl(x.telegram)!=='#'?`<a class="detail-link" style="background:#168acd" href="${esc(safeUrl(x.telegram))}" target="_blank" rel="noopener">✈️ Telegram</a>`:''}</div>`;$('vacancyDetailContent').innerHTML=detail;
+  const sections=Array.isArray(x.sections)?x.sections:[];
+  const links=Array.isArray(x.importantLinks)?x.importantLinks:[];
+  let detail='<div class="article-wrap">';
+  detail+='<button class="article-back" onclick="backToVacancies()">← सरकारी Vacancy पर वापस जाएँ</button>';
+  detail+='<h1 class="article-title">'+esc(x.title||'सरकारी Vacancy')+'</h1>';
+  if(x.postDate) detail+='<div class="article-date">Post Date: '+esc(x.postDate)+'</div>';
+  if(x.intro) detail+='<div class="article-intro">'+articleText(x.intro)+'</div>';
+  if(x.description) detail+='<div class="article-main-text">'+articleText(x.description)+'</div>';
+  sections.forEach(sec=>{
+    if(sec.heading) detail+='<div class="article-section"><div class="article-section-title">'+esc(sec.heading)+'</div>';
+    if(sec.content) detail+='<div class="article-section-content">'+articleText(sec.content)+'</div>';
+    if(sec.tableHeaders&&sec.tableRows){
+      const hs=sec.tableHeaders.split('|').map(v=>v.trim()).filter(Boolean);
+      const rows=sec.tableRows.split(/\n/).map(r=>r.trim()).filter(Boolean).map(r=>r.split('|').map(v=>v.trim()));
+      detail+='<div class="article-table-wrap"><table class="article-table"><thead><tr>'+hs.map(h=>'<th>'+esc(h)+'</th>').join('')+'</tr></thead><tbody>';
+      rows.forEach(r=>{detail+='<tr>'+hs.map((_,i)=>'<td>'+esc(r[i]||'')+'</td>').join('')+'</tr>'});
+      detail+='</tbody></table></div>';
+    }
+    if(sec.heading) detail+='</div>';
+  });
+  if(links.length){
+    detail+='<div class="article-links"><div class="article-links-title">SOME USEFUL IMPORTANT LINKS</div>';
+    links.forEach(l=>{const u=safeUrl(l.url);if(u!=='#') detail+='<div class="article-link-row"><div class="article-link-name">'+esc(l.name||'Link')+'</div><div class="article-link-url"><a href="'+esc(u)+'" target="_blank" rel="noopener">Click Here</a></div></div>'});
+    detail+='</div>';
+  }
+  if(x.imageUrl){const u=safeUrl(x.imageUrl);if(u!=='#') detail+='<img class="article-image" src="'+esc(u)+'" alt="">';}
+  detail+='<div class="article-buttons">';
+  if(x.mainLink&&safeUrl(x.mainLink)!=='#') detail+='<a class="article-btn" style="background:#d00000" href="'+esc(safeUrl(x.mainLink))+'" target="_blank" rel="noopener">🔗 Official / Main Link</a>';
+  if(x.whatsapp&&safeUrl(x.whatsapp)!=='#') detail+='<a class="article-btn" style="background:#0caf57" href="'+esc(safeUrl(x.whatsapp))+'" target="_blank" rel="noopener">💬 WhatsApp</a>';
+  if(x.telegram&&safeUrl(x.telegram)!=='#') detail+='<a class="article-btn" style="background:#168acd" href="'+esc(safeUrl(x.telegram))+'" target="_blank" rel="noopener">✈️ Telegram</a>';
+  detail+='</div></div>';
+  $('vacancyDetailContent').innerHTML=detail;
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function backToVacancies(){
