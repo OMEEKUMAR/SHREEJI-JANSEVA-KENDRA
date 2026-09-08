@@ -1,187 +1,55 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shri Ji Janseva Kendra Daulatpur</title>
+<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Shri Ji Janseva Kendra — Admin Panel</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#f7f8fb;color:#17233b}
-.top{background:#a90812;color:#fff;padding:9px 6%;display:flex;justify-content:space-between;font-size:14px}
-.header{background:#fff;padding:18px 6%;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:14px}.logo{width:70px;height:70px;border-radius:50%;background:#fff;border:4px solid #a90812;display:grid;place-items:center;color:#a90812;font-size:38px;font-weight:bold}
-.brand h1{margin:0;color:#102b50;font-size:27px}.brand h1 span{color:#b10b17}.tag{margin-top:5px;color:#555}
-.call{text-align:right}.call b{font-size:22px;color:#111e36}
-.nav{margin:0 4%;background:#062b55;border-radius:8px 8px 0 0;display:flex;align-items:center;overflow:hidden}.nav a{color:#fff;text-decoration:none;padding:16px 23px;font-weight:700}.nav a[data-page]{background:transparent!important;color:#fff!important}.nav a[data-page].active{background:#d00000!important;color:#fff!important}.wa{margin-left:auto;background:#0cab55;padding:16px 25px;color:#fff;text-decoration:none;font-weight:700}
-.hero{min-height:390px;background:linear-gradient(90deg,#101820e8,#10182055),url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=80") center/cover;display:flex;align-items:center;padding:45px 7%;color:#fff}
-.hero h2{font-size:43px;margin:0 0 10px}.hero h2 span{color:#ffd21c}.hero p{font-size:22px;margin:8px 0 20px}.checks{line-height:2;font-size:17px}.btn{display:inline-block;padding:13px 24px;border-radius:8px;margin:14px 8px 0 0;text-decoration:none;font-weight:bold}.red{background:#ed1b24;color:#fff}.green{background:#0caf57;color:#fff}
-section{padding:45px 6%}section h2{text-align:center;color:#0a315b;font-size:31px;margin:0 0 28px}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.card{background:#fff;border:1px solid #e1e5ea;border-radius:10px;padding:22px 12px;text-align:center;box-shadow:0 4px 15px #0000000a}.ico{font-size:42px;margin-bottom:10px}.card h3{font-size:18px;margin:6px 0}.card p{font-size:14px;color:#666;margin:0}
-.about{background:#eef4fa;display:grid;grid-template-columns:1fr 1.4fr;gap:35px;align-items:center}.about-img{height:230px;border-radius:14px;background:linear-gradient(135deg,#d8e7f7,#fff);display:grid;place-items:center;font-size:85px}
-.contact{background:#062b55;color:#fff;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.contact h3{margin:0 0 8px}.contact p{margin:0;line-height:1.5;color:#e2e9f3}.contact a{color:#fff}
-footer{background:#041c38;color:#cbd6e4;padding:18px 6%;display:flex;justify-content:space-between}
-.dynamic-page{display:none;background:#fff;min-height:500px;padding:45px 6%}.dynamic-page h2{text-align:center;color:#0a315b;font-size:31px;margin:0 0 28px}.dynamic-grid{max-width:1250px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.dyn-card{background:#fff;border:1px solid #ddd;border-radius:8px;padding:18px;box-shadow:0 2px 8px #0001}.dyn-card h3{margin:0 0 8px;color:#a90000}.dyn-card p{line-height:1.5;color:#444;white-space:pre-wrap}.dyn-card a{color:#00e;text-decoration:underline;font-weight:700}.dyn-empty{text-align:center;color:#666;padding:45px 15px;grid-column:1/-1}
-.vac-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1250px;margin:auto}.vac-box{border:1px solid #ddd;background:#fff;overflow:hidden}.vac-title{background:#b40000;color:#fff;text-align:center;font-size:24px;font-weight:bold;padding:10px}.vac-list{padding:12px 25px;min-height:330px}.vac-list li{margin-bottom:14px;line-height:1.45}.vac-list a{color:#00e;text-decoration:underline;font-weight:700}.status{max-width:1250px;margin:0 auto 18px;padding:10px 14px;border-radius:6px;background:#fff3cd;color:#664d03;display:none}.status.show{display:block}
-.service-dynamic-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-top:25px}.service-dynamic-card{background:#fff;border:1px solid #e1e5ea;border-radius:10px;padding:22px 12px;text-align:center;box-shadow:0 4px 15px #0000000a}.service-dynamic-card .ico{font-size:42px;margin-bottom:10px}.service-dynamic-card h3{font-size:18px;margin:6px 0}.service-dynamic-card p{font-size:14px;color:#666;margin:0;line-height:1.5;white-space:pre-line}.service-dynamic-card a{font-size:13px}.detail-backdrop{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;padding:20px;z-index:9999}.detail-box{position:relative;background:#fff;max-width:850px;width:100%;max-height:85vh;overflow:auto;border-radius:12px;padding:30px;box-shadow:0 15px 50px #0005}.detail-box h2{margin:0 35px 20px 0;color:#082e57;text-align:left;font-size:30px}.detail-close{position:absolute;right:12px;top:8px;border:0;background:#c00;color:#fff;width:36px;height:36px;border-radius:50%;font-size:25px;cursor:pointer}.detail-text{font-size:17px;line-height:1.7;white-space:pre-wrap;color:#222}.detail-link{display:inline-block;margin-top:20px;background:#c00;color:#fff!important;padding:11px 18px;border-radius:7px;text-decoration:none!important;font-weight:bold}
-@media(max-width:850px){.top,.header,footer{flex-direction:column;gap:10px;align-items:flex-start}.nav{overflow:auto;margin:0}.hero h2{font-size:34px}.grid{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.contact{grid-template-columns:1fr 1fr}.call{text-align:left}.dynamic-grid,.vac-grid,.service-dynamic-grid{grid-template-columns:1fr}.wa{margin-left:0}}
+*{box-sizing:border-box}body{font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#f1f4f8;margin:0;color:#222}.top{background:#b40000;color:#fff;padding:18px 5%;font-size:23px;font-weight:800}.wrap{max-width:1180px;margin:25px auto;padding:0 15px}.box{background:#fff;border-radius:12px;padding:22px;margin-bottom:20px;box-shadow:0 3px 15px #00000012}h2{color:#0a3767;margin:0 0 15px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}label{display:block;font-weight:800;margin:11px 0 6px}input,select,textarea{width:100%;padding:12px;border:1px solid #cbd3dc;border-radius:7px;font-size:15px;background:#fff}textarea{min-height:95px;resize:vertical}.red{background:#b40000;color:white}.gray{background:#e4e7eb}.danger{background:#dc3545;color:#fff}.green{background:#198754;color:#fff}button{border:0;border-radius:7px;padding:11px 17px;font-weight:800;cursor:pointer;margin-top:10px}.hide{display:none!important}.msg{padding:11px;border-radius:7px;margin-top:12px;background:#fff3cd}.success{background:#d1e7dd;color:#0f5132}.error{background:#f8d7da;color:#842029}.note{background:#f7f9fc;border-left:5px solid #b40000;padding:12px;margin:10px 0 15px}.block{border:1px solid #d7dde5;border-radius:10px;padding:16px;margin-top:16px;background:#fafbfd}.block h3{margin:0 0 8px;color:#123f6c}.rows{margin-top:10px}.row{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin:8px 0}.row3{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;margin:8px 0}.row2wide{display:grid;grid-template-columns:1fr 2fr auto;gap:8px;margin:8px 0}.item{border:1px solid #ddd;padding:14px;margin:10px 0;border-radius:8px;display:flex;justify-content:space-between;gap:12px;align-items:center}.tag{display:inline-block;background:#e9f0f7;color:#0a3767;padding:4px 9px;border-radius:20px;font-size:12px;font-weight:800;margin-right:7px}.actions button{margin-left:5px}.head{display:flex;justify-content:space-between;align-items:center;gap:10px}.head button{margin-top:0}@media(max-width:750px){.grid2,.grid3{grid-template-columns:1fr}.row,.row3,.row2wide{grid-template-columns:1fr}.item,.head{flex-direction:column;align-items:flex-start}}
+</style></head><body>
+<div class="top">🔐 Shri Ji Janseva Kendra — Admin Panel</div><div class="wrap">
+<div id="loginBox" class="box"><h2>Admin Login</h2><div class="grid2"><div><label>Email</label><input id="email" type="email" value="omeepra2061222@gmail.com"></div><div><label>Password</label><input id="password" type="password" value="206122"></div></div><button id="loginBtn" class="red">Login</button><div id="loginMsg" class="msg hide"></div></div>
+<div id="panel" class="hide">
+<div class="box"><div class="head"><h2>Website में जानकारी जोड़ें / Edit करें</h2><button id="logoutBtn" class="gray">Logout</button></div><label>किस Menu में जोड़ना है?</label><select id="menu"><option value="home">Home</option><option value="about">About Us</option><option value="services">Services</option><option value="gallery">Gallery</option><option value="online">Online Services</option><option value="contact">Contact Us</option><option value="vacancy">सरकारी Vacancy</option></select>
+<div id="normalForm"><label>Emoji / Icon (Services के लिए)</label><input id="icon" placeholder="जैसे 🪪 💳 📜 🏠"><div class="grid2"><div><label>शीर्षक / नाम</label><input id="normalTitle"></div><div><label>Link (यदि जरूरी हो)</label><input id="normalLink"></div></div><label>विवरण</label><textarea id="normalDesc" placeholder="2–3 लाइन की जानकारी..."></textarea><button id="addNormal" class="red">+ Menu में जोड़ें</button><button id="cancelNormal" class="gray hide">Cancel Edit</button><div id="normalMsg" class="msg hide"></div></div>
 
-/* Vacancy article layout - reference style */
-.article-wrap{max-width:1200px;margin:0 auto;background:#fff;color:#111;font-family:"Times New Roman",Times,serif;padding:10px 18px 40px}
-.article-title{color:#0000ee;text-decoration:none;font-size:31px;font-weight:700;margin:0 0 10px;line-height:1.25}
-.article-date{color:#c00;font-weight:700;font-size:15px;margin-bottom:18px}
-.article-intro,.article-main-text{font-size:17px;line-height:1.72;margin:0 0 20px;font-weight:600}
-.article-section{margin:24px 0}
-.article-section-title{display:table;margin:0 auto;background:#000080;color:#fff;font-size:20px;font-weight:700;padding:1px 7px;text-align:center;line-height:1.25;border:1px solid #000080}
-.article-section-content{border:1px solid #111;border-top:0;font-size:17px;line-height:1.55}
-.article-content-row{padding:6px 10px;border-bottom:1px solid #111;min-height:34px}
-.article-content-row:last-child{border-bottom:0}
-.article-content-row b{font-weight:700}
-.article-two-col{display:grid;grid-template-columns:1fr 1fr;border:1px solid #111;border-top:0}
-.article-two-col .article-col{min-width:0}
-.article-two-col .article-col+.article-col{border-left:1px solid #111}
-.article-two-col .article-col-title{background:#5b0030;color:#fff;text-align:center;font-size:19px;font-weight:700;padding:7px;border-bottom:1px solid #111}
-.article-two-col .article-col-body{padding:7px 12px;font-size:17px;line-height:1.6}
-.article-two-col ul,.article-section-content ul{margin:0;padding-left:22px}
-.article-two-col li,.article-section-content li{margin:4px 0}
-.article-table-wrap{overflow:auto;margin-top:0}
-.article-table{width:100%;border-collapse:collapse;font-size:17px;font-weight:600}
-.article-table th,.article-table td{border:1px solid #111;padding:7px 8px;text-align:center;vertical-align:middle}
-.article-table th{background:#fff;font-weight:700;font-size:17px}
-.article-age-total{display:grid;grid-template-columns:1fr 230px;border:1px solid #111}
-.article-age-total .age-side{border-right:1px solid #111}
-.article-age-total .age-title{background:#006b35;color:#fff;text-align:center;font-size:19px;font-weight:700;padding:7px}
-.article-age-total .total-title{background:#ff3b00;color:#fff;text-align:center;font-size:19px;font-weight:700;padding:7px}
-.article-age-total .age-body{padding:8px 12px;font-size:17px;line-height:1.6}
-.article-age-total .total-body{text-align:center;font-size:24px;font-weight:700;padding:14px 8px}
-.article-links{margin-top:24px;border:1px solid #111}
-.article-links-title{background:#fff;color:#f00;text-align:center;font-size:19px;font-weight:700;padding:8px;border-bottom:1px solid #111}
-.article-link-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #111}
-.article-link-row:last-child{border-bottom:0}
-.article-link-name,.article-link-url{padding:10px 12px;font-weight:700;text-align:center}
-.article-link-name,.article-link-url{background:#fff4a8}
-.article-link-url a{color:#00e;text-decoration:underline}
-.article-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;justify-content:flex-start}
-.article-btn{display:inline-block;padding:10px 18px;border-radius:4px;text-decoration:none;font-weight:700;color:#fff}
-.article-image{max-width:100%;height:auto;display:block;margin:20px auto;border:1px solid #ddd}
-.article-note{color:#f00;font-weight:700}
-.article-check{border:1px solid #111;padding:7px 10px;margin:18px 0;font-size:17px;font-weight:700}
-@media(max-width:850px){.article-title{font-size:25px}.article-link-row,.article-two-col,.article-age-total{grid-template-columns:1fr}.article-two-col .article-col+.article-col{border-left:0;border-top:1px solid #111}.article-age-total .age-side{border-right:0;border-bottom:1px solid #111}.article-table{font-size:14px}.article-section-title{font-size:18px}}
-</style>
-</head>
-<body>
-<div class="top"><span>📍 Daulatpur, Uttar Pradesh</span><span>🕐 Customer Service: 24 घंटे उपलब्ध</span></div>
-<div class="header"><div class="brand"><div class="logo">श्री</div><div><h1>Shri Ji Janseva Kendra <span>Daulatpur</span></h1><div class="tag">Aapki Seva, Hamara Sankalp</div></div></div><div class="call">☎️ Call Us<br><b>8938986837</b><br><b>6396367324</b></div></div>
-<div class="nav">
-<a class="active" data-page="home" href="#home">Home</a><a data-page="vacancy" href="#vacancy">सरकारी Vacancy</a><a data-page="about" href="#about">About Us</a><a data-page="services" href="#services">Services</a><a data-page="gallery" href="#gallery">Gallery</a><a data-page="online" href="#online">Online Services</a><a data-page="contact" href="#contact">Contact Us</a><a class="wa" href="https://wa.me/918938986837" target="_blank">💬 WhatsApp</a>
+<div id="vacancyForm" class="hide"><div class="note"><b>सरकारी Vacancy — Screenshot जैसा पूरा Article Form</b><br>नीचे हर section अलग-अलग भरें। CSC पर article अपने आप इसी क्रम में दिखाई देगा।</div>
+<div class="grid3"><div><label>Vacancy Category *</label><select id="vacCat"><option>Results</option><option>Admit Cards</option><option>Latest Jobs</option></select></div><div><label>Post Date</label><input id="postDate" placeholder="September 8, 2026"></div><div><label>Total Post</label><input id="totalPost" placeholder="जैसे 1250"></div></div>
+<label>Vacancy Title *</label><input id="title" placeholder="जैसे SSC Junior Engineer JE Recruitment 2026">
+<label>Short Intro</label><textarea id="intro" placeholder="Article की शुरुआत में दिखने वाला परिचय..."></textarea><label>Main Description</label><textarea id="fullDesc" placeholder="पूरी जानकारी / पैराग्राफ..."></textarea>
+<div class="block"><h3>📅 Important Dates</h3><div id="datesRows" class="rows"></div><button type="button" class="gray" onclick="addPair('datesRows','Date / Event','Date')">+ तारीख जोड़ें</button></div>
+<div class="block"><h3>💰 Application Fee</h3><div id="feeRows" class="rows"></div><button type="button" class="gray" onclick="addPair('feeRows','Category','Fee')">+ Fee जोड़ें</button></div>
+<div class="block"><h3>🎂 Age Limit</h3><textarea id="ageLimit" placeholder="जैसे Minimum Age 18 Years, Maximum Age 27 Years..."></textarea></div>
+<div class="block"><h3>📋 Vacancy Details</h3><div id="vacRows" class="rows"></div><button type="button" class="gray" onclick="addVacRow()">+ Post जोड़ें</button></div>
+<div class="block"><h3>🎓 Eligibility Criteria</h3><div id="eligRows" class="rows"></div><button type="button" class="gray" onclick="addEligRow()">+ Eligibility जोड़ें</button></div>
+<div class="block"><h3>🔎 You May Also Check</h3><div id="checkRows" class="rows"></div><button type="button" class="gray" onclick="addLinkRow('checkRows','नाम','URL')">+ Link जोड़ें</button></div>
+<div class="block"><h3>📝 How To Apply</h3><textarea id="howApply" placeholder="हर step नई लाइन में लिखें...\n1. Official website खोलें\n2. Apply Online पर क्लिक करें"></textarea></div>
+<div class="block"><h3>✅ Mode Of Selection</h3><textarea id="modeSelection" placeholder="जैसे Written Exam, Document Verification, Medical Test..."></textarea></div>
+<div class="block"><h3>🔗 SOME USEFUL IMPORTANT LINKS</h3><div id="importantRows" class="rows"></div><button type="button" class="gray" onclick="addLinkRow('importantRows','Link Name','URL')">+ Important Link जोड़ें</button></div>
+<div class="block"><h3>❓ Important Questions / FAQ</h3><div id="faqRows" class="rows"></div><button type="button" class="gray" onclick="addFaqRow()">+ FAQ जोड़ें</button></div>
+<div class="grid2"><div><label>WhatsApp Channel Link</label><input id="whatsapp" placeholder="https://..."></div><div><label>Telegram Channel Link</label><input id="telegram" placeholder="https://..."></div></div>
+<div class="grid2"><div><label>Image URL (optional)</label><input id="imageUrl"></div><div><label>Official / Main Link</label><input id="mainLink"></div></div>
+<button id="addVacancy" class="red">+ पूरी Vacancy जोड़ें</button><button id="cancelVacancy" class="gray hide">Cancel Edit</button><div id="vacMsg" class="msg hide"></div></div>
 </div>
-
-<div id="homeView">
-<div class="hero"><div><h2>Shri Ji Janseva Kendra<br><span>Daulatpur</span></h2><p>हमारी सेवाएँ, आपकी सुविधा</p><div class="checks">✓ सरकारी योजनाओं का लाभ<br>✓ ऑनलाइन आवेदन<br>✓ डिजिटल सेवाएँ<br>✓ सभी कार्य आसान और विश्वसनीय</div><a class="btn red" href="tel:8938986837">☎ 8938986837</a><a class="btn green" href="https://wa.me/918938986837" target="_blank">💬 WhatsApp करें</a></div></div>
-<section id="services"><h2>━━ हमारी सेवाएँ ━━</h2><div class="grid">
-<div class="card"><div class="ico">🪪</div><h3>आधार कार्ड</h3><p>नया आधार, अपडेट, प्रिंट, डाउनलोड</p></div><div class="card"><div class="ico">💳</div><h3>पैन कार्ड</h3><p>नया पैन कार्ड बनवाएँ</p></div><div class="card"><div class="ico">📜</div><h3>आय प्रमाण पत्र</h3><p>ऑनलाइन आय प्रमाण पत्र</p></div><div class="card"><div class="ico">👨‍👩‍👧</div><h3>जाति प्रमाण पत्र</h3><p>ऑनलाइन जाति प्रमाण पत्र</p></div><div class="card"><div class="ico">🏠</div><h3>निवास प्रमाण पत्र</h3><p>ऑनलाइन निवास प्रमाण पत्र</p></div><div class="card"><div class="ico">🍚</div><h3>राशन कार्ड</h3><p>नया राशन कार्ड बनवाएँ</p></div><div class="card"><div class="ico">⚡</div><h3>बिजली बिल</h3><p>बिजली बिल जमा करें</p></div><div class="card"><div class="ico">📱</div><h3>मोबाइल रिचार्ज</h3><p>सभी कंपनियों का रिचार्ज</p></div><div class="card"><div class="ico">📡</div><h3>डी.टी.एच. रिचार्ज</h3><p>सभी DTH रिचार्ज उपलब्ध</p></div><div class="card"><div class="ico">📝</div><h3>ऑनलाइन आवेदन</h3><p>सभी प्रकार के फॉर्म भरें</p></div></div><div id="homeItems" class="dynamic-grid" style="margin-top:25px"></div></section>
-<section class="about"><div class="about-img">🧑‍💻</div><div><h2 style="text-align:left">हमारे बारे में</h2><p>श्री जी जनसेवा केन्द्र, दौलतपुर में आपका स्वागत है। हमारा उद्देश्य है कि सभी सरकारी और डिजिटल सेवाएँ आपको एक ही स्थान पर, आसान और विश्वसनीय तरीके से उपलब्ध कराई जाएँ।</p><p>हम हमेशा आपकी सेवा के लिए तत्पर हैं।</p></div></section>
-<section class="contact"><div><h3>📍 हमारा पता</h3><p>Daulatpur, Uttar Pradesh</p></div><div><h3>☎️ कॉल करें</h3><p><a href="tel:8938986837">8938986837</a><br><a href="tel:6396367324">6396367324</a></p></div><div><h3>💬 WhatsApp करें</h3><p><a href="https://wa.me/918938986837" target="_blank">8938986837</a></p></div><div><h3>🕐 Customer Service</h3><p>24 घंटे उपलब्ध</p></div></section>
-</div>
-
-<section id="vacancyPage" class="dynamic-page"><h2>━━ सरकारी Vacancy ━━</h2><div id="dbStatus" class="status"></div><div id="vacGrid" class="vac-grid"></div></section>
-<section id="aboutPage" class="dynamic-page"><h2>━━ About Us ━━</h2><div class="about" style="margin:0 -6% 25px;padding:45px 6%"><div class="about-img">🧑‍💻</div><div><h2 style="text-align:left">हमारे बारे में</h2><p>श्री जी जनसेवा केन्द्र, दौलतपुर में आपका स्वागत है। हमारा उद्देश्य है कि सभी सरकारी और डिजिटल सेवाएँ आपको एक ही स्थान पर, आसान और विश्वसनीय तरीके से उपलब्ध कराई जाएँ।</p><p>हम हमेशा आपकी सेवा के लिए तत्पर हैं।</p></div></div><div id="aboutItems" class="dynamic-grid"></div></section>
-<section id="servicesPage" class="dynamic-page"><h2>━━ Services ━━</h2><div class="grid" style="max-width:1250px;margin:auto"><div class="card"><div class="ico">🪪</div><h3>आधार कार्ड</h3><p>नया आधार, अपडेट, प्रिंट, डाउनलोड</p></div><div class="card"><div class="ico">💳</div><h3>पैन कार्ड</h3><p>नया पैन कार्ड बनवाएँ</p></div><div class="card"><div class="ico">📜</div><h3>आय प्रमाण पत्र</h3><p>ऑनलाइन आय प्रमाण पत्र</p></div><div class="card"><div class="ico">👨‍👩‍👧</div><h3>जाति प्रमाण पत्र</h3><p>ऑनलाइन जाति प्रमाण पत्र</p></div><div class="card"><div class="ico">🏠</div><h3>निवास प्रमाण पत्र</h3><p>ऑनलाइन निवास प्रमाण पत्र</p></div><div class="card"><div class="ico">🍚</div><h3>राशन कार्ड</h3><p>नया राशन कार्ड बनवाएँ</p></div><div class="card"><div class="ico">⚡</div><h3>बिजली बिल</h3><p>बिजली बिल जमा करें</p></div><div class="card"><div class="ico">📱</div><h3>मोबाइल रिचार्ज</h3><p>सभी कंपनियों का रिचार्ज</p></div><div class="card"><div class="ico">📡</div><h3>डी.टी.एच. रिचार्ज</h3><p>सभी DTH रिचार्ज उपलब्ध</p></div><div class="card"><div class="ico">📝</div><h3>ऑनलाइन आवेदन</h3><p>सभी प्रकार के फॉर्म भरें</p></div></div><div id="servicesItems" class="service-dynamic-grid"></div></section>
-<section id="galleryPage" class="dynamic-page"><h2>━━ Gallery ━━</h2><div id="galleryItems" class="dynamic-grid"></div></section>
-<section id="onlinePage" class="dynamic-page"><h2>━━ Online Services ━━</h2><div id="onlineItems" class="dynamic-grid"></div></section>
-<section id="contactPage" class="dynamic-page"><h2>━━ Contact Us ━━</h2><section class="contact" style="margin:0 -6%"><div><h3>📍 हमारा पता</h3><p>Daulatpur, Uttar Pradesh</p></div><div><h3>☎️ कॉल करें</h3><p><a href="tel:8938986837">8938986837</a><br><a href="tel:6396367324">6396367324</a></p></div><div><h3>💬 WhatsApp करें</h3><p><a href="https://wa.me/918938986837" target="_blank">8938986837</a></p></div><div><h3>🕐 Customer Service</h3><p>24 घंटे उपलब्ध</p></div></section><div id="contactItems" class="dynamic-grid" style="margin-top:25px"></div></section>
-
-<div id="detailModal" style="display:none"></div>
-<div id="vacancyDetailPage" class="dynamic-page" style="display:none; padding:40px 6%; min-height:500px;">
-  <div id="vacancyDetailContent" style="background:#fff;border:1px solid #ddd;border-radius:10px;padding:28px;margin-top:20px;max-width:1000px;margin-left:auto;margin-right:auto;"></div>
-</div>
-<footer><span>© 2026 Shri Ji Janseva Kendra Daulatpur</span><span>Customer Service: 24 घंटे ❤️</span></footer>
-
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<div class="box"><h2>Website में जोड़ी गई जानकारी</h2><div id="list">लोड हो रहा है...</div></div>
+</div></div>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 <script>
 const firebaseConfig={apiKey:"AIzaSyCgI9qUtwwEtQbpcgyg7PCfg5ELh6xbiFw",authDomain:"shreeji-janseva-kendra.firebaseapp.com",databaseURL:"https://shreeji-janseva-kendra-default-rtdb.asia-southeast1.firebasedatabase.app",projectId:"shreeji-janseva-kendra",storageBucket:"shreeji-janseva-kendra.firebasestorage.app",messagingSenderId:"12714204809",appId:"1:12714204809:web:852670e019a0886055b058",measurementId:"G-JSQXRWB6E6"};
-let db=null;try{firebase.initializeApp(firebaseConfig);db=firebase.database()}catch(e){console.error(e)}
-const $=id=>document.getElementById(id);function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function safeUrl(v){try{const u=new URL(v);return /^https?:$/.test(u.protocol)?u.href:'#'}catch(e){return '#'}}
-const details={};let seq=0;function key(x){const k='d'+(++seq);details[k]=x;return k}function openDetail(k){const x=details[k]||{};const link=x.link?safeUrl(x.link):'';$('detailModal').innerHTML=`<div class="detail-backdrop" onclick="closeDetail(event)"><div class="detail-box" onclick="event.stopPropagation()"><button class="detail-close" onclick="closeDetail()">×</button><h2>${esc(x.title||'जानकारी')}</h2><div class="detail-text">${esc(x.description||'इस जानकारी का विस्तृत विवरण Admin Panel में नहीं जोड़ा गया है।')}</div>${link&&link!=='#'?`<a class="detail-link" href="${esc(link)}" target="_blank" rel="noopener">🔗 Official Link खोलें</a>`:''}</div></div>`;$('detailModal').style.display='block'}function closeDetail(e){if(e&&e.target&&!e.target.classList.contains('detail-backdrop'))return;$('detailModal').style.display='none'}
-function card(x,isService=false){const k=key(x);if(isService)return `<div class="service-dynamic-card"><div class="ico">${esc(x.icon||'📌')}</div><h3>${esc(x.title)}</h3>${x.description?`<p>${esc(x.description)}</p>`:''}${x.link?`<p><a href="${esc(safeUrl(x.link))}" target="_blank" rel="noopener" style="color:#00e;text-decoration:underline;font-weight:700">Official Link →</a></p>`:''}</div>`;return `<div class="dyn-card"><h3><a href="javascript:void(0)" onclick="openDetail('${k}')">${esc(x.title)}</a></h3>${x.description?`<p>${esc(x.description)}</p>`:''}<a href="javascript:void(0)" onclick="openDetail('${k}')">पूरी जानकारी देखें →</a>${x.link?` <a href="${esc(safeUrl(x.link))}" target="_blank" rel="noopener">Official Link →</a>`:''}</div>`}
-function render(id,arr){const e=$(id);if(!e)return;const isService=id==='servicesItems';e.innerHTML=arr.length?arr.map(x=>card(x,isService)).join(''):''}
-function loadMenu(){if(!db)return;db.ref('menuItems').on('value',s=>{const g={home:[],about:[],services:[],gallery:[],online:[],contact:[]};Object.values(s.val()||{}).forEach(x=>{if(x&&g[x.menu])g[x.menu].push(x)});Object.values(g).forEach(a=>a.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0)));render('homeItems',g.home);render('aboutItems',g.about);render('servicesItems',g.services);render('galleryItems',g.gallery);render('onlineItems',g.online);render('contactItems',g.contact)})}
-function articleText(v){
-  return esc(v||'').replace(/\n/g,'<br>');
-}
-function fmtLines(text){
-  return String(text||'').split(/\r?\n/).map(v=>v.trim()).filter(Boolean);
-}
-function renderBullets(text){
-  const lines=fmtLines(text);
-  if(!lines.length)return '';
-  return '<ul>'+lines.map(line=>'<li>'+articleText(line)+'</li>').join('')+'</ul>';
-}
-function renderGenericSection(sec){
-  let out='<div class="article-section">';
-  if(sec.heading) out+='<div class="article-section-title">'+esc(sec.heading)+'</div>';
-  if(sec.tableHeaders&&sec.tableRows){
-    const hs=sec.tableHeaders.split('|').map(v=>v.trim()).filter(Boolean);
-    const rows=sec.tableRows.split(/\r?\n/).map(r=>r.trim()).filter(Boolean).map(r=>r.split('|').map(v=>v.trim()));
-    out+='<div class="article-table-wrap"><table class="article-table"><thead><tr>'+hs.map(h=>'<th>'+esc(h)+'</th>').join('')+'</tr></thead><tbody>';
-    rows.forEach(r=>{out+='<tr>'+hs.map((_,i)=>'<td>'+articleText(r[i]||'')+'</td>').join('')+'</tr>'});
-    out+='</tbody></table></div>';
-  }else if(sec.content){
-    const h=String(sec.heading||'').toLowerCase();
-    const isHow=/how to fill|how to apply|mode of selection|important question|faq|eligibility|age limit|application fee|important dates|selection/.test(h);
-    if(isHow) out+='<div class="article-section-content">'+renderBullets(sec.content)+'</div>';
-    else out+='<div class="article-section-content">'+fmtLines(sec.content).map(line=>'<div class="article-content-row">'+articleText(line)+'</div>').join('')+'</div>';
-  }
-  return out+'</div>';
-}
-function openVacancyPage(x){
-  $('vacancyPage').style.display='none';
-  $('homeView').style.display='none';
-  document.querySelectorAll('.dynamic-page').forEach(v=>v.style.display='none');
-  $('vacancyDetailPage').style.display='block';
-  const sections=Array.isArray(x.sections)?x.sections:[];
-  const links=Array.isArray(x.importantLinks)?x.importantLinks:[];
-  let detail='<div class="article-wrap">';
-  detail+='<h1 class="article-title">'+esc(x.title||'सरकारी Vacancy')+'</h1>';
-  if(x.postDate) detail+='<div class="article-date">Post Date: '+esc(x.postDate)+'</div>';
-  if(x.intro) detail+='<div class="article-intro">'+articleText(x.intro)+'</div>';
-  if(x.description) detail+='<div class="article-main-text">'+articleText(x.description)+'</div>';
-
-  // Reference-style first two sections side-by-side when they are Important Dates + Application Fee.
-  let i=0;
-  while(i<sections.length){
-    const a=sections[i], b=sections[i+1];
-    const ah=String(a.heading||'').toLowerCase(), bh=String(b&&b.heading||'').toLowerCase();
-    if(b && ((/important dates/.test(ah)&&/application fee/.test(bh))||(/application fee/.test(ah)&&/important dates/.test(bh)))){
-      detail+='<div class="article-section"><div class="article-two-col">';
-      [a,b].forEach(sec=>{detail+='<div class="article-col"><div class="article-col-title">'+esc(sec.heading)+'</div><div class="article-col-body">'+(sec.tableHeaders&&sec.tableRows?renderGenericSection(sec).replace(/^<div class="article-section">|<\/div>$/g,''):renderBullets(sec.content))+'</div></div>'});
-      detail+='</div></div>'; i+=2; continue;
-    }
-    // Age limit + Total Post: total post is read from badge when badge is supplied.
-    if(/age limit/.test(ah) && x.badge){
-      detail+='<div class="article-section"><div class="article-age-total"><div class="age-side"><div class="age-title">'+esc(a.heading)+'</div><div class="age-body">'+renderBullets(a.content)+'</div></div><div><div class="total-title">Total Post</div><div class="total-body">'+esc(x.badge)+'</div></div></div></div>';
-      i++; continue;
-    }
-    if(/you may also check/.test(ah)){
-      detail+='<div class="article-check">• '+articleText(a.content||a.heading)+'</div>'; i++; continue;
-    }
-    detail+=renderGenericSection(a); i++;
-  }
-  if(links.length){
-    detail+='<div class="article-links"><div class="article-links-title">SOME USEFUL IMPORTANT LINKS</div>';
-    links.forEach(l=>{const u=safeUrl(l.url);if(u!=='#') detail+='<div class="article-link-row"><div class="article-link-name">'+esc(l.name||'Link')+'</div><div class="article-link-url"><a href="'+esc(u)+'" target="_blank" rel="noopener">Click Here</a></div></div>'});
-    detail+='</div>';
-  }
-  if(x.imageUrl){const u=safeUrl(x.imageUrl);if(u!=='#') detail+='<img class="article-image" src="'+esc(u)+'" alt="">';}
-  if(x.mainLink&&safeUrl(x.mainLink)!=='#') detail+='<div class="article-buttons"><a class="article-btn" style="background:#d00000" href="'+esc(safeUrl(x.mainLink))+'" target="_blank" rel="noopener">Official / Main Link</a></div>';
-  detail+='</div>';
-  $('vacancyDetailContent').innerHTML=detail;
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function backToVacancies(){
-  $('vacancyDetailPage').style.display='none';
-  $('vacancyPage').style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function loadVac(){const cats=['Results','Admit Cards','Latest Jobs'];$('vacGrid').innerHTML=cats.map(c=>`<div class="vac-box"><div class="vac-title">${c}</div><div class="vac-list" id="cat-${c.replace(/\s/g,'-')}"></div></div>`).join('');if(!db)return;db.ref('vacancies').on('value',s=>{const d=s.val()||{};cats.forEach(c=>{const a=Object.values(d).filter(x=>x&&x.cat===c).sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));const e=$('cat-'+c.replace(/\s/g,'-'));e.innerHTML=a.length?'<ul>'+a.map(x=>{const k=key(x);return `<li><a href="javascript:void(0)" onclick="openVacancyPage(details['${k}'])">${esc(x.title)}</a></li>`}).join('')+'</ul>':''})},e=>{if($('dbStatus')){$('dbStatus').textContent='Database error: '+e.message;$('dbStatus').className='status show'}})}
-function showPage(page,el){document.querySelectorAll('.nav a[data-page]').forEach(a=>a.classList.remove('active'));el.classList.add('active');$('homeView').style.display=page==='home'?'block':'none';document.querySelectorAll('.dynamic-page').forEach(x=>x.style.display='none');if(page==='vacancy'){$('vacancyPage').style.display='block';loadVac()}else if(page==='about')$('aboutPage').style.display='block';else if(page==='services')$('servicesPage').style.display='block';else if(page==='gallery')$('galleryPage').style.display='block';else if(page==='online')$('onlinePage').style.display='block';else if(page==='contact')$('contactPage').style.display='block';window.scrollTo({top:0,behavior:'smooth'})}
-document.querySelectorAll('.nav a[data-page]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();showPage(a.dataset.page,a)}));loadMenu();
-</script>
-</body></html>
+let auth,db,latestMenu={},latestVac={},editId=null,editType=null;const $=id=>document.getElementById(id);const labels={home:'Home',about:'About Us',services:'Services',gallery:'Gallery',online:'Online Services',contact:'Contact Us'};function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function msg(id,t,c=''){const e=$(id);e.textContent=t;e.className='msg '+c}function url(v){if(!v)return '';try{let u=new URL(v);return /^https?:$/.test(u.protocol)?u.href:null}catch{return null}}
+try{firebase.initializeApp(firebaseConfig);auth=firebase.auth();db=firebase.database()}catch(e){msg('loginMsg',e.message,'error')}
+if(auth)auth.onAuthStateChanged(u=>{if(u){$('loginBox').classList.add('hide');$('panel').classList.remove('hide');load()}else{$('loginBox').classList.remove('hide');$('panel').classList.add('hide')}});$('loginBtn').onclick=()=>auth.signInWithEmailAndPassword($('email').value.trim(),$('password').value).catch(e=>msg('loginMsg','Login असफल: '+e.message,'error'));$('logoutBtn').onclick=()=>auth.signOut();
+function toggle(){let v=$('menu').value;$('vacancyForm').classList.toggle('hide',v!=='vacancy');$('normalForm').classList.toggle('hide',v==='vacancy');$('icon').required=v==='services'}$('menu').onchange=toggle;
+function addPair(id,a,b,d={}){let e=document.createElement('div');e.className='row';e.innerHTML=`<input class="p1" placeholder="${a}" value="${esc(d.label||'')}"><input class="p2" placeholder="${b}" value="${esc(d.value||'')}"><button type="button" class="danger">×</button>`;e.querySelector('button').onclick=()=>e.remove();$(id).appendChild(e)}
+function addVacRow(d={}){let e=document.createElement('div');e.className='row3';e.innerHTML=`<input class="p1" placeholder="Post Name" value="${esc(d.postName||'')}"><input class="p2" placeholder="No. Of Post" value="${esc(d.noOfPost||'')}"><input class="p3" placeholder="State / Other" value="${esc(d.state||'')}"><button type="button" class="danger">×</button>`;e.querySelector('button').onclick=()=>e.remove();$('vacRows').appendChild(e)}
+function addEligRow(d={}){let e=document.createElement('div');e.className='row2wide';e.innerHTML=`<input class="p1" placeholder="Post Name" value="${esc(d.postName||'')}"><input class="p2" placeholder="Eligibility Criteria" value="${esc(d.criteria||'')}"><button type="button" class="danger">×</button>`;e.querySelector('button').onclick=()=>e.remove();$('eligRows').appendChild(e)}
+function addLinkRow(id,a,b,d={}){let e=document.createElement('div');e.className='row2wide';e.innerHTML=`<input class="p1" placeholder="${a}" value="${esc(d.name||'')}"><input class="p2" placeholder="${b}" value="${esc(d.url||'')}"><button type="button" class="danger">×</button>`;e.querySelector('button').onclick=()=>e.remove();$(id).appendChild(e)}
+function addFaqRow(d={}){let e=document.createElement('div');e.className='row2wide';e.innerHTML=`<input class="p1" placeholder="Question" value="${esc(d.q||'')}"><textarea class="p2" placeholder="Answer">${esc(d.a||'')}</textarea><button type="button" class="danger">×</button>`;e.querySelector('button').onclick=()=>e.remove();$('faqRows').appendChild(e)}
+function collectPairs(id){return [...$(id).children].map(e=>({label:e.querySelector('.p1').value.trim(),value:e.querySelector('.p2').value.trim()})).filter(x=>x.label||x.value)}function collectVac(){return [...$('vacRows').children].map(e=>({postName:e.querySelector('.p1').value.trim(),noOfPost:e.querySelector('.p2').value.trim(),state:e.querySelector('.p3').value.trim()})).filter(x=>x.postName||x.noOfPost||x.state)}function collectElig(){return [...$('eligRows').children].map(e=>({postName:e.querySelector('.p1').value.trim(),criteria:e.querySelector('.p2').value.trim()})).filter(x=>x.postName||x.criteria)}function collectLinks(id){return [...$(id).children].map(e=>({name:e.querySelector('.p1').value.trim(),url:e.querySelector('.p2').value.trim()})).filter(x=>x.name||x.url)}function collectFaq(){return [...$('faqRows').children].map(e=>({q:e.querySelector('.p1').value.trim(),a:e.querySelector('.p2').value.trim()})).filter(x=>x.q||x.a)}
+function resetVac(){['title','postDate','totalPost','intro','fullDesc','ageLimit','howApply','modeSelection','whatsapp','telegram','imageUrl','mainLink'].forEach(i=>$(i).value='');['datesRows','feeRows','vacRows','eligRows','checkRows','importantRows','faqRows'].forEach(i=>$(i).innerHTML='');$('vacCat').value='Results';editId=null;editType=null;$('addVacancy').textContent='+ पूरी Vacancy जोड़ें';$('cancelVacancy').classList.add('hide')}
+function resetNormal(){['icon','normalTitle','normalLink','normalDesc'].forEach(i=>$(i).value='');editId=null;editType=null;$('addNormal').textContent='+ Menu में जोड़ें';$('cancelNormal').classList.add('hide')}
+function makeVac(){let title=$('title').value.trim();if(!title){msg('vacMsg','Vacancy Title भरें।','error');return null}let item={cat:$('vacCat').value,title,postDate:$('postDate').value.trim(),totalPost:$('totalPost').value.trim(),intro:$('intro').value,description:$('fullDesc').value,importantDates:collectPairs('datesRows'),applicationFee:collectPairs('feeRows'),ageLimit:$('ageLimit').value,vacancyDetails:collectVac(),eligibility:collectElig(),checkLinks:collectLinks('checkRows'),howToApply:$('howApply').value,modeSelection:$('modeSelection').value,importantLinks:collectLinks('importantRows'),faqs:collectFaq(),whatsapp:$('whatsapp').value.trim(),telegram:$('telegram').value.trim(),imageUrl:$('imageUrl').value.trim(),mainLink:$('mainLink').value.trim(),createdAt:editType==='vacancy'&&editId?(latestVac[editId].createdAt||Date.now()):Date.now()};return item}
+$('addVacancy').onclick=()=>{let item=makeVac();if(!item)return;for(let k of ['whatsapp','telegram','imageUrl','mainLink'])if(item[k]&& !url(item[k]))return msg('vacMsg',k+' का URL सही नहीं है।','error');$('addVacancy').disabled=true;let r=editType==='vacancy'&&editId?db.ref('vacancies/'+editId).set(item):db.ref('vacancies').push(item);r.then(()=>{msg('vacMsg',editType==='vacancy'?'Vacancy अपडेट हो गई।':'Vacancy सफलतापूर्वक जोड़ दी गई।','success');resetVac()}).catch(e=>msg('vacMsg','Database error: '+e.message,'error')).finally(()=>$('addVacancy').disabled=false)};
+$('cancelVacancy').onclick=()=>{resetVac();msg('vacMsg','Edit cancel कर दिया गया।','')};
+$('addNormal').onclick=()=>{let menu=$('menu').value,title=$('normalTitle').value.trim(),icon=menu==='services'?$('icon').value.trim():'';if(!title)return msg('normalMsg','शीर्षक भरें।','error');if(menu==='services'&&!icon)return msg('normalMsg','Services के लिए Emoji / Icon भरें।','error');let raw=$('normalLink').value.trim();if(raw&&!url(raw))return msg('normalMsg','Link सही URL होना चाहिए।','error');let item={menu,title,link:url(raw)||'',description:$('normalDesc').value.trim(),icon,createdAt:editType==='menu'&&editId?(latestMenu[editId].createdAt||Date.now()):Date.now()};let r=editType==='menu'&&editId?db.ref('menuItems/'+editId).set(item):db.ref('menuItems').push(item);r.then(()=>{msg('normalMsg',editType==='menu'?'जानकारी अपडेट हो गई।':'सफलतापूर्वक जोड़ दिया गया।','success');resetNormal()}).catch(e=>msg('normalMsg',e.message,'error'))};
+$('cancelNormal').onclick=()=>{resetNormal();msg('normalMsg','Edit cancel कर दिया गया।','')};
+function load(){db.ref('menuItems').on('value',s=>{latestMenu=s.val()||{};render()});db.ref('vacancies').on('value',s=>{latestVac=s.val()||{};render()})}function render(){let a=Object.entries(latestMenu).map(([id,x])=>({id,x,type:'menu'})),b=Object.entries(latestVac).map(([id,x])=>({id,x,type:'vacancy'})),arr=a.concat(b).sort((p,q)=>(q.x.createdAt||0)-(p.x.createdAt||0));$('list').innerHTML=arr.length?arr.map(o=>`<div class="item"><div><span class="tag">${esc(o.type==='vacancy'?o.x.cat:labels[o.x.menu]||o.x.menu)}</span><b>${esc(o.x.title||'')}</b>${o.x.postDate?`<br><small>${esc(o.x.postDate)}</small>`:''}</div><div class="actions"><button class="gray" onclick="editItem('${o.id}','${o.type}')">✏️ Edit</button><button class="danger" onclick="delItem('${o.id}','${o.type}')">Delete</button></div></div>`).join(''):'अभी कुछ नहीं जोड़ा गया है।'}
+function editItem(id,type){let x=type==='vacancy'?latestVac[id]:latestMenu[id];if(!x)return;editId=id;editType=type;$('menu').value=type==='vacancy'?'vacancy':(x.menu||'home');toggle();window.scrollTo({top:0,behavior:'smooth'});if(type==='vacancy'){resetVac();editId=id;editType=type;$('vacCat').value=x.cat||'Results';['title','postDate','totalPost','intro','fullDesc','ageLimit','howApply','modeSelection','whatsapp','telegram','imageUrl','mainLink'].forEach(k=>$(k).value=x[k]||'');(x.importantDates||[]).forEach(v=>addPair('datesRows','Date / Event','Date',v));(x.applicationFee||[]).forEach(v=>addPair('feeRows','Category','Fee',v));(x.vacancyDetails||[]).forEach(addVacRow);(x.eligibility||[]).forEach(addEligRow);(x.checkLinks||[]).forEach(v=>addLinkRow('checkRows','नाम','URL',v));(x.importantLinks||[]).forEach(v=>addLinkRow('importantRows','Link Name','URL',v));(x.faqs||[]).forEach(addFaqRow);$('addVacancy').textContent='💾 Vacancy Update करें';$('cancelVacancy').classList.remove('hide');msg('vacMsg','Edit mode: पुरानी जानकारी नीचे लोड हो गई है।','success')}else{resetNormal();editId=id;editType=type;$('menu').value=x.menu||'home';toggle();$('normalTitle').value=x.title||'';$('normalLink').value=x.link||'';$('normalDesc').value=x.description||'';$('icon').value=x.icon||'';$('addNormal').textContent='💾 जानकारी Update करें';$('cancelNormal').classList.remove('hide');msg('normalMsg','Edit mode चालू है।','success')}}
+function delItem(id,type){if(!confirm('क्या यह जानकारी Delete करनी है?'))return;(type==='vacancy'?db.ref('vacancies/'+id):db.ref('menuItems/'+id)).remove()}
+toggle();
+</script></body></html>
