@@ -31,7 +31,7 @@ footer{background:#041c38;color:#cbd6e4;padding:18px 6%;display:flex;justify-con
 .article-main-text{font-size:17px;line-height:1.8;white-space:pre-wrap;margin-bottom:22px}
 .article-section{margin:22px 0}
 .article-section-title{display:table;margin:0 auto;background:#000080;color:#fff;font-size:20px;font-weight:700;padding:2px 8px;text-align:center;line-height:1.25}
-.article-section-content{border:1px solid #111;border-top:0;padding:10px 14px;font-size:17px;line-height:1.7;white-space:pre-wrap}
+.article-section-content{border:1px solid #111;border-top:0;font-size:17px;line-height:1.65}.article-content-row{padding:7px 12px;border-bottom:1px solid #111;min-height:36px}.article-content-row:last-child{border-bottom:0}.article-content-row b{font-weight:700}
 .article-table-wrap{overflow:auto;margin-top:0}
 .article-table{width:100%;border-collapse:collapse;font-size:17px;font-weight:600}
 .article-table th,.article-table td{border:1px solid #111;padding:7px 8px;text-align:center;vertical-align:middle}
@@ -105,7 +105,10 @@ function openVacancyPage(x){
   if(x.description) detail+='<div class="article-main-text">'+articleText(x.description)+'</div>';
   sections.forEach(sec=>{
     if(sec.heading) detail+='<div class="article-section"><div class="article-section-title">'+esc(sec.heading)+'</div>';
-    if(sec.content) detail+='<div class="article-section-content">'+articleText(sec.content)+'</div>';
+    if(sec.content){
+      const lines=String(sec.content).split(/\r?\n/).map(v=>v.trim()).filter(Boolean);
+      if(lines.length) detail+='<div class="article-section-content">'+lines.map(line=>'<div class="article-content-row">'+articleText(line)+'</div>').join('')+'</div>';
+    }
     if(sec.tableHeaders&&sec.tableRows){
       const hs=sec.tableHeaders.split('|').map(v=>v.trim()).filter(Boolean);
       const rows=sec.tableRows.split(/\n/).map(r=>r.trim()).filter(Boolean).map(r=>r.split('|').map(v=>v.trim()));
